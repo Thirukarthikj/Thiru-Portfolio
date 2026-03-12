@@ -1,0 +1,517 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thirukarthick J — Portfolio</title>
+
+<link rel="icon" type="image/png" href="1.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#f5f7ff;
+--surface:#ffffff;
+--surface2:#eef0fb;
+--border:#dde1f5;
+--accent:#4f46e5;
+--text:#1a1a2e;
+--text-muted:#6b7280;
+--text-dim:#374151;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1rem 5%;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+z-index:100;
+}
+
+.nav-logo{
+font-family:'Playfair Display',serif;
+font-weight:700;
+font-size:1.2rem;
+text-decoration:none;
+color:var(--text);
+}
+
+.nav-logo span{
+color:var(--accent);
+}
+
+.nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+font-size:.85rem;
+text-transform:uppercase;
+color:var(--text-muted);
+}
+
+.nav-links a:hover{
+color:var(--accent);
+}
+
+/* HERO */
+
+#hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:8rem 5% 4rem;
+}
+
+.hero-content{
+max-width:750px;
+animation:fadeUp 1s ease forwards;
+}
+
+.hero-name{
+font-family:'Playfair Display',serif;
+font-size:clamp(3rem,8vw,5rem);
+font-weight:900;
+margin-bottom:.5rem;
+}
+
+.hero-title{
+font-size:1.3rem;
+color:var(--text-dim);
+margin-bottom:1.5rem;
+}
+
+.hero-desc{
+max-width:520px;
+color:var(--text-muted);
+margin-bottom:2rem;
+}
+
+.hero-btns{
+display:flex;
+gap:1rem;
+}
+
+.btn-primary{
+background:var(--accent);
+color:white;
+padding:.75rem 1.6rem;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(79,70,229,0.3);
+}
+
+.btn-outline{
+border:1px solid var(--border);
+padding:.75rem 1.6rem;
+border-radius:8px;
+text-decoration:none;
+color:var(--text);
+transition:.3s;
+}
+
+.btn-outline:hover{
+background:var(--surface2);
+}
+
+/* SECTIONS */
+
+section{
+padding:5rem 5%;
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+}
+
+.section-label{
+font-size:.75rem;
+letter-spacing:.15em;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:.5rem;
+}
+
+.section-title{
+font-family:'Playfair Display',serif;
+font-size:2.3rem;
+margin-bottom:2rem;
+}
+
+/* ABOUT */
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+}
+
+.soft-skills{
+display:flex;
+flex-wrap:wrap;
+gap:.5rem;
+margin-top:1rem;
+}
+
+.soft-tag{
+background:var(--surface2);
+padding:.3rem .8rem;
+border-radius:20px;
+font-size:.8rem;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:1rem;
+}
+
+.skill-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:10px;
+padding:1.2rem;
+transition:.3s;
+}
+
+.skill-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-color:var(--accent);
+}
+
+.skill-pill{
+background:var(--surface2);
+padding:.25rem .7rem;
+border-radius:6px;
+font-size:.8rem;
+}
+
+/* PROJECT */
+
+.project-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:12px;
+padding:2rem;
+transition:.3s;
+}
+
+.project-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.tech-chip{
+background:var(--surface2);
+padding:.25rem .7rem;
+border-radius:6px;
+font-size:.75rem;
+}
+
+/* NEW CONTACT STYLE */
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:1.5rem;
+margin-top:2rem;
+}
+
+.contact-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:14px;
+padding:2rem;
+text-align:center;
+transition:.3s;
+}
+
+.contact-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-color:var(--accent);
+}
+
+.contact-icon{
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.contact-card h3{
+margin-bottom:8px;
+}
+
+.contact-card a{
+text-decoration:none;
+color:var(--text-muted);
+font-size:.9rem;
+}
+
+.contact-card a:hover{
+color:var(--accent);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--text);
+color:#9ca3af;
+text-align:center;
+padding:2rem 5%;
+font-size:.8rem;
+}
+
+footer span{
+color:#818cf8;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#hero" class="nav-logo">Thiru<span>.</span></a>
+
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section id="hero">
+<div class="hero-content">
+<h1 class="hero-name">Thiru Karthik J</h1>
+<p class="hero-title">MCA Student · Java Developer · Tech Enthusiast</p>
+<p class="hero-desc">
+Passionate MCA student with strong programming and web development skills.
+</p>
+
+<div class="hero-btns">
+<a href="#projects" class="btn-primary">View Projects</a>
+<a href="#contact" class="btn-outline">Contact Me</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="section-label">Who I Am</div>
+<h2 class="section-title">About Me</h2>
+
+<div class="about-grid">
+<div>
+<p>
+I'm Thirukarthick J currently pursuing MCA and passionate about software development and emerging technologies.
+</p>
+
+<div class="soft-skills">
+<span class="soft-tag">Communication</span>
+<span class="soft-tag">Problem Solving</span>
+<span class="soft-tag">Teamwork</span>
+<span class="soft-tag">Adaptability</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+
+<div class="section-label">Skills</div>
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+Frontend<br><br>
+<span class="skill-pill">HTML</span>
+<span class="skill-pill">CSS</span>
+<span class="skill-pill">JavaScript</span>
+<span class="skill-pill">Responsive Design</span>
+</div>
+
+<div class="skill-card">
+Backend<br><br>
+<span class="skill-pill">Java</span>
+<span class="skill-pill">PHP</span>
+<span class="skill-pill">Node.js</span>
+<span class="skill-pill">REST APIs</span>
+</div>
+
+<div class="skill-card">
+Programming<br><br>
+<span class="skill-pill">C</span>
+<span class="skill-pill">C++</span>
+<span class="skill-pill">Java</span>
+<span class="skill-pill">Python</span>
+<span class="skill-pill">OOP</span>
+</div>
+
+<div class="skill-card">
+Database<br><br>
+<span class="skill-pill">MySQL</span>
+<span class="skill-pill">MongoDB</span>
+<span class="skill-pill">SQL</span>
+</div>
+
+<div class="skill-card">
+Tools<br><br>
+<span class="skill-pill">Git</span>
+<span class="skill-pill">GitHub</span>
+<span class="skill-pill">VS Code</span>
+<span class="skill-pill">XAMPP</span>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+
+<div class="section-label">Projects</div>
+<h2 class="section-title">Featured Project</h2>
+
+<div class="project-card">
+
+<h3>IoT Rash Driving Monitoring System</h3>
+
+<p>
+IoT system to detect rash driving using sensors, RFID vehicle identification,
+and GPS tracking for road safety.
+</p>
+
+<br>
+
+<span class="tech-chip">IoT</span>
+<span class="tech-chip">RFID</span>
+<span class="tech-chip">GPS</span>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="section-label">Contact</div>
+<h2 class="section-title">Get In Touch</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<div class="contact-icon">✉️</div>
+<h3>Email</h3>
+<p><a href="mailto:jthirukarthick@gmail.com">jthirukarthick@gmail.com</a></p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">📞</div>
+<h3>Phone</h3>
+<p><a href="tel:+919342553805">+91 9342553805</a></p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">🐙</div>
+<h3>GitHub</h3>
+<p><a href="https://github.com/thirukarthik1516" target="_blank">github.com/thirukarthik1516</a></p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">🔗</div>
+<h3>LinkedIn</h3>
+<p><a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>Designed & Built by <span>Thirukarthik J</span></p>
+</footer>
+
+<script>
+
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity=1;
+entry.target.style.transform="translateY(0)";
+}
+});
+});
+
+sections.forEach(section=>{
+observer.observe(section);
+});
+
+</script>
+
+</body>
+</html>
+```
